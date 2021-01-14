@@ -1,0 +1,17 @@
+{
+	"name": "kuvi",
+	"version": "0.1.0",
+	"author": "Victor Moin",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/vctrmn/kubi"
+	},
+	"license": "GPL-3.0",
+	"scripts": {
+		"dev:frontend": "npm run start --prefix frontend",
+		"dev:backend": "npm run dev --prefix backend",
+		"dev": "npm run dev:backend & npm run dev:frontend",
+		"install": "npm install --prefix backend && npm install --prefix frontend",
+		"lint": "npm run lint --prefix backend && npm run lint --prefix frontend"
+	}
+}

@@ -1,0 +1,62 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kuvi
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: kuvi-dashboard-sa
+  namespace: kuvi
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: kuvi-dashboard-rbac
+  namespace: kuvi
+subjects:
+  - kind: ServiceAccount
+    name: kuvi-dashboard-sa
+    namespace: kuvi
+roleRef:
+  kind: ClusterRole
+  name: view
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kuvi-dashboard
+  namespace: kuvi
+spec:
+  ports:
+    - port: 80
+      targetPort: 5000
+  selector:
+    app: kuvi-dashboard
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kuvi-dashboard
+  namespace: kuvi
+spec:
+  selector:
+    matchLabels:
+      app: kuvi-dashboard
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kuvi-dashboard
+    spec:
+      serviceAccountName: kuvi-dashboard-sa
+      containers:
+        - name: kuvi
+          image: vctrmn/kuvi-dashboard:0.1.0
+          env:
+            - name: NODE_ENV
+              value: container
+          ports:
+            - containerPort: 5000
