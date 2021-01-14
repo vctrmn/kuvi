@@ -39,7 +39,7 @@ Never trust a file downloaded from the internet. Make sure to review the content
 1. Run the following command to install kuvi and its dependencies:
 
 ```
-kubectl apply --filename https://github.com/vctrmn/kuvi/blob/main/kubernetes.yaml
+kubectl apply --filename https://raw.githubusercontent.com/vctrmn/kuvi/main/kubernetes.yaml
 ```
 
 2. Access the dashboard using kubectl port-forward
