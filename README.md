@@ -20,7 +20,7 @@ Node.js should be installed
 1. Clone this repository
 
 ```
-git clone xxxx && cd kuvi
+git clone https://github.com/vctrmn/kuvi.git && cd kuvi
 ```
 
 2. Install dependecies and start the application
@@ -34,12 +34,12 @@ npm install && npm run dev
 ## Deploying Kuvi on Kubernetes
 
 **NOTE:**
-Never trust a file downloaded from the internet. Make sure to review the contents of [kubernetes.yaml](https://raw.githubusercontent.com/xxxxx/kubernetes.yaml) before running the script below.
+Never trust a file downloaded from the internet. Make sure to review the contents of [kubernetes.yaml](https://github.com/vctrmn/kuvi/blob/main/kubernetes.yaml) before running the script below.
 
 1. Run the following command to install kuvi and its dependencies:
 
 ```
-kubectl apply --filename https://xxxxxxxxxxxxx
+kubectl apply --filename https://github.com/vctrmn/kuvi/blob/main/kubernetes.yaml
 ```
 
 2. Access the dashboard using kubectl port-forward
