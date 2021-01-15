@@ -58,6 +58,12 @@ kubectl --namespace kuvi port-forward svc/kuvi-dashboard 9876:80
 
 3. Browse [http://localhost:9876](http://localhost:9876) to access your Dashboard.
 
+### Clean up
+
+```
+kubectl delete --filename https://raw.githubusercontent.com/vctrmn/kuvi/main/kubernetes.yaml --ignore-not-found
+```
+
 ## Built With
 
 - [React](https://github.com/facebook/react)
