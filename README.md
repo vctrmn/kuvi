@@ -26,7 +26,11 @@ git clone https://github.com/vctrmn/kuvi.git && cd kuvi
 2. Install dependecies and start the application
 
 ```
-npm install && npm run dev
+npm install
+```
+
+```
+npm run dev
 ```
 
 3. Browse [http://localhost:3000](http://localhost:3000)

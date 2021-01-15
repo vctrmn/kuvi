@@ -10,8 +10,11 @@
 	"scripts": {
 		"dev:frontend": "npm run start --prefix frontend",
 		"dev:backend": "npm run dev --prefix backend",
-		"dev": "npm run dev:backend & npm run dev:frontend",
-		"install": "npm install --prefix backend && npm install --prefix frontend",
-		"lint": "npm run lint --prefix backend && npm run lint --prefix frontend"
+		"dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+		"install": "concurrently \"npm install --prefix backend\" \"npm install --prefix frontend\"",
+		"lint": "concurrently \"npm run lint --prefix backend\" \"npm run lint --prefix frontend\""
+	},
+	"devDependencies": {
+		"concurrently": "^5.3.0"
 	}
 }
