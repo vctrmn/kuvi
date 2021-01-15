@@ -20,7 +20,11 @@ Node.js should be installed
 1. Clone this repository
 
 ```
-git clone https://github.com/vctrmn/kuvi.git && cd kuvi
+git clone https://github.com/vctrmn/kuvi.git
+```
+
+```
+cd kuvi
 ```
 
 2. Install dependecies and start the application
