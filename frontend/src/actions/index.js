@@ -14,7 +14,10 @@ export const switchToDarkTheme = () => (dispatch) => {
 		localStorage.setItem('darkTheme', JSON.stringify(true))
 		dispatch({ type: SWITCH_TO_DARK_THEME })
 	} catch (error) {
-		dispatch({ type: ADD_NOTIFICATION, payload: { type: 'error', from: SWITCH_TO_DARK_THEME, message: 'Error while switching to dark theme.' } })
+		dispatch({
+			type: ADD_NOTIFICATION,
+			payload: { type: 'error', from: SWITCH_TO_DARK_THEME, message: 'Error while switching to dark theme.' }
+		})
 	}
 }
 
@@ -23,7 +26,10 @@ export const switchToLightTheme = () => (dispatch) => {
 		localStorage.setItem('darkTheme', JSON.stringify(false))
 		dispatch({ type: SWITCH_TO_LIGHT_THEME })
 	} catch (error) {
-		dispatch({ type: ADD_NOTIFICATION, payload: { type: 'error', from: SWITCH_TO_LIGHT_THEME, message: 'Error while switching to light theme.' } })
+		dispatch({
+			type: ADD_NOTIFICATION,
+			payload: { type: 'error', from: SWITCH_TO_LIGHT_THEME, message: 'Error while switching to light theme.' }
+		})
 	}
 }
 
@@ -34,7 +40,7 @@ export const removeNotification = (notificationUid) => (dispatch) => {
 export const fetchNamespacesServicesPods = () => async (dispatch) => {
 	try {
 		dispatch({ type: IS_LOADING })
-		const res = await axios.get('/api/namespaces')
+		const res = await axios.get('/api/namespaces-services-pods')
 		dispatch({ type: FETCH_NAMESPACES_SERVICES_PODS, payload: res.data })
 	} catch (error) {
 		if (error?.response?.status === 522) {
@@ -45,7 +51,11 @@ export const fetchNamespacesServicesPods = () => async (dispatch) => {
 		} else {
 			dispatch({
 				type: ADD_NOTIFICATION,
-				payload: { type: 'error', from: FETCH_NAMESPACES_SERVICES_PODS, message: 'Error while fetching data (namespaces, services and pods).' }
+				payload: {
+					type: 'error',
+					from: FETCH_NAMESPACES_SERVICES_PODS,
+					message: 'Error while fetching data (namespaces, services and pods).'
+				}
 			})
 		}
 	}
