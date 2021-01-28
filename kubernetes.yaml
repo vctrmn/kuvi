@@ -54,7 +54,7 @@ spec:
       serviceAccountName: kuvi-dashboard-sa
       containers:
         - name: kuvi
-          image: vctrmn/kuvi-dashboard:0.1.0
+          image: vctrmn/kuvi-dashboard:0.1.1
           env:
             - name: NODE_ENV
               value: container
