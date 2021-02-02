@@ -40,7 +40,7 @@ export const generateGroupingsV1 = (pods: Array<Pod>, services: Array<Service>):
 			}
 			if (boundIndex) {
 				services[i].bound = true
-				groupings[boundIndex].services.push(services[i])
+				groupings[boundIndex]?.services.push(services[i])
 			} else if (grouping.pods.length > 0) {
 				services[i].bound = true
 				groupings.push(grouping)

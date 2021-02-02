@@ -21,9 +21,11 @@ export const generateNamespacesServicesPods = (
 		return {
 			uid: namespace?.metadata?.uid,
 			name: namespace?.metadata?.name,
-			groupings: groupings.filter((grouping) => namespace?.metadata?.name === grouping?.namespace),
-			services: services.filter((service) => !service?.bound && namespace?.metadata?.name === service?.namespace),
-			pods: pods.filter((pod) => !pod?.bound && namespace?.metadata?.name === pod?.namespace)
+			groupings: groupings?.filter((grouping) => namespace?.metadata?.name === grouping?.namespace),
+			services: services?.filter(
+				(service) => !service?.bound && namespace?.metadata?.name === service?.namespace
+			),
+			pods: pods?.filter((pod) => !pod?.bound && namespace?.metadata?.name === pod?.namespace)
 		}
 	})
 }
